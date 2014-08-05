@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email = 'nicklink483@gmail.com'
   spec.files = [
     "lib/abc_parser.rb",
-    "lib/abc/file.rb",
+    "lib/abc/file.rb"
   ]
   spec.homepage = 'https://github.com/RSMP/abc_parser'
   spec.license = 'MIT'
