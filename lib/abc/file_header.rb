@@ -15,7 +15,7 @@ module ABC
   # of the original file header into the header of the extracted tune. However,
   # since users may manually extract tunes without regard to the file header, it
   # is not recommended to use a file header in an abc tunebook that is to be
-  # distributed. 
+  # distributed.
   #
   class FileHeader
   
