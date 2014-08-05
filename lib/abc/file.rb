@@ -12,9 +12,7 @@ module ABC
   # tunebook.
   #
   class File
-    def self.open(filepath)
-      @file = ::File.open(filepath, "r") {|f| f.read}
-    end
+    
   end
 end
 
