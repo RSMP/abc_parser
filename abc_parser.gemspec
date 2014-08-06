@@ -5,7 +5,8 @@ Gem::Specification.new do |spec|
   spec.version = '0.0.1'
   spec.date = '2014-08-05'
   spec.summary = 'ABC file parser'
-  spec.description = 'Converts ABC music files into Ruby objects for programatic use.'
+  spec.description = 'Converts ABC music files into Ruby objects for ' +
+    'programatic use.'
   spec.authors = ["Dominic Muller"]
   spec.email = 'nicklink483@gmail.com'
   spec.files = [

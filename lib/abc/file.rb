@@ -1,17 +1,43 @@
 
 module ABC
-  # An abc file consists of one or more abc tune transcriptions,
-  # optionally interspersed with free text and typeset text
-  # annotations. It may optionally start with a file header to
-  # set up default values for processing the file.
-  #
-  # The file header, abc tunes and text annotations are separated
-  # from each other by empty lines (also known as blank lines).
-  #
-  # An abc file with more than one tune in it is called an abc
-  # tunebook.
-  #
   class File
-    
+    attr_reader :parsed, :version, :tunes, :header
+    def initialize(filepath)
+      @filepath = filepath
+      @file = ::File.open(@filepath, "r") {|f| f.read}
+      @parsed = false
+      parse
+    end
+    def parsed?
+      parsed
+    end
+    private
+    def parse
+      @sections = @file.split(/\n(?=\n)/)
+      @sections.each do |section|
+        case section_type(section)
+        when :tune
+          @tunes ||= []
+          @tunes << Tune.new(section)
+        when :file_header
+          @header = FileHeader.new(section)
+        else
+        end
+      end
+      @parsed = true
+    end
+    def section_type(section)
+      type = :unknown
+      section.each_line do |line|
+        if m = line.match(/%abc(-(?<version>[\d.]+))?/)
+          @version ||= m[:version].to_f
+        end
+        case line
+        when /^H:|^O:/ then type = :file_header
+        when /^X:|^T:|^K:/ then type = :tune
+        end
+      end
+      type
+    end
   end
 end

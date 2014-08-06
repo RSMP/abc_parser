@@ -18,7 +18,9 @@ module ABC
   # distributed.
   #
   class FileHeader
-  
+    def initialize(header)
+    
+    end
   end
   
 end
