@@ -1,7 +1,9 @@
 
 module ABC
   class Tune
-    attr_reader :header
+    extend Forwardable
+    attr_reader :header, :body
+    def_delegators :@header, :reference
     def initialize(tune)
       @header = TuneHeader.new
     end

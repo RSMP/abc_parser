@@ -27,8 +27,12 @@ describe ABC::Tune do
   it "should have a header" do
     expect(tune.header)
   end
-  it "should have a body"
-  it "should have a reference number of 1"
+  it "should have a body" do
+    expect tune.body
+  end
+  it "should have a reference number of 1" do
+    expect(tune.reference).to eq 1
+  end
   it "should have the title 'Dusty Miller, The'"
   it "should have a meter of 3/4"
   it "should have a key of G"
