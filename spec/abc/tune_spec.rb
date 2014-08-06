@@ -25,7 +25,7 @@ require 'spec_helper'
 describe ABC::Tune do
   let(:tune) {ABC::File.new("spec/fixtures/english.abc").tunes[0]}
   it "should have a header" do
-    expect(tune.header)
+    expect tune.header
   end
   it "should have a body" do
     expect tune.body
@@ -33,7 +33,13 @@ describe ABC::Tune do
   it "should have a reference number of 1" do
     expect(tune.reference).to eq 1
   end
-  it "should have the title 'Dusty Miller, The'"
-  it "should have a meter of 3/4"
-  it "should have a key of G"
+  it "should have the title 'Dusty Miller, The'" do
+    expect(tune.titles[0]).to eq 'Dusty Miller, The'
+  end
+  it "should have a meter of 3/4" do
+    expect(tune.meter).to eq '3/4'
+  end
+  it "should have a key of G" do
+    expect(tune.key).to eq 'G'
+  end
 end
