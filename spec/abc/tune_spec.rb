@@ -23,5 +23,11 @@ require 'spec_helper'
 # comment line. 
 #
 describe ABC::Tune do
-
+  let(:tune) {ABC::File.new("spec/fixtures/english.abc").tunes[0]}
+  it "should have a header"
+  it "should have a body"
+  it "should have a reference number of 1"
+  it "should have the title 'Dusty Miller, The'"
+  it "should have a meter of 3/4"
+  it "should have a key of G"
 end
