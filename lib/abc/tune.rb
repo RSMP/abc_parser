@@ -3,7 +3,8 @@ module ABC
   class Tune
     extend Forwardable
     attr_reader :header, :body
-    def_delegators :@header, :reference, :titles, :meter, :key
+    def_delegators :@header, :reference, :titles, :meter, :key, :source, :notes,
+      :rhythm
     def initialize(tune)
       tune = tune[1..-1] if tune[0].eql? "\n"
       header = ""

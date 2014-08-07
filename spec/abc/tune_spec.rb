@@ -23,23 +23,56 @@ require 'spec_helper'
 # comment line. 
 #
 describe ABC::Tune do
-  let(:tune) {ABC::File.new("spec/fixtures/english.abc").tunes[0]}
-  it "should have a header" do
-    expect tune.header
+  context "First tune" do
+    let(:tune) {ABC::File.new("spec/fixtures/english.abc").tunes[0]}
+    it "should have a header" do
+      expect tune.header
+    end
+    it "should have a body" do
+      expect tune.body
+    end
+    it "should have a reference number of 1" do
+      expect(tune.reference).to eq 1
+    end
+    it "should have the title 'Dusty Miller, The'" do
+      expect(tune.titles[0]).to eq 'Dusty Miller, The'
+    end
+    it "should have a meter of 3/4" do
+      expect(tune.meter).to eq '3/4'
+    end
+    it "should have a key of G" do
+      expect(tune.key).to eq 'G'
+    end
   end
-  it "should have a body" do
-    expect tune.body
+  context "second tune" do
+    let(:tune) {ABC::File.new("spec/fixtures/english.abc").tunes[1]}
+    it "should have a header" do
+      expect tune.header
+    end
+    it "should have a body" do
+      expect tune.body
+    end
+    it "should have a reference number of 2" do
+      expect(tune.reference).to eq 2
+    end
+    it "should have the title 'Old Sir Simon the King'" do
+      expect(tune.titles[0]).to eq 'Old Sir Simon the King'
+    end
+    it "should have a meter of 9/8" do
+      expect(tune.meter).to eq '9/8'
+    end
+    it "should have a source of 'Offord MSS'" do
+      expect(tune.source).to eq 'Offord MSS'
+    end
+    it "should have a note of 'see also Playford'" do
+      expect(tune.notes[0]).to eq 'see also Playford'
+    end
+    it "should have a rhythm of 'SJ'" do
+      expect(tune.rhythm).to eq 'SJ'
+    end
+    it "should have a key of G" do
+      expect(tune.key).to eq 'G'
+    end
   end
-  it "should have a reference number of 1" do
-    expect(tune.reference).to eq 1
-  end
-  it "should have the title 'Dusty Miller, The'" do
-    expect(tune.titles[0]).to eq 'Dusty Miller, The'
-  end
-  it "should have a meter of 3/4" do
-    expect(tune.meter).to eq '3/4'
-  end
-  it "should have a key of G" do
-    expect(tune.key).to eq 'G'
-  end
+  
 end
